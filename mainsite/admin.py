@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+import sys
+reload(sys)
+sys.setdefaultencoding("utf8")
+#以上三行，是解决中文不能显示的方案
 
 from django.contrib import admin
 from .models import Post
-admin.site.register(Post)
-# Register your models here.
+class PostAdmin(admin.ModelAdmin):
+    list_display=('title','slug','pub_date')
+
+admin.site.register(Post,PostAdmin)
