@@ -7,7 +7,14 @@
 <body>
 <h1 align="center">欢迎光临小石的信息系统</h1>
 <hr>
-{{ posts }}
+{% for post in posts %}
+  <p style="font-family:宋体;font-size: 16pt;font-weight: bold;">
+      {{ post.title }}
+  </p>
+  <p style="font-family: 微软雅黑;font-size: 10pt;letter-spacing: 1pt;">
+      {{ post.body }}
+  </p>
+{% endfor %}
 </body>
 <hr>
 <h3>现在时间：{{ now }}</h3>
